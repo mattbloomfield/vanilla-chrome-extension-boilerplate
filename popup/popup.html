@@ -1,0 +1,38 @@
+<div id='Outer'>
+	<h3>Your Extension Title</h3>
+	<p>This is what th extension does. You can also configure it to do more.</p>
+	<a id='options' href='options.html' target='_blank'>Configure</a>
+</div>
+<script>
+var optionsUrl = chrome.extension.getURL("options.html"); //this is how you reference extension files
+document.getElementById('options').href = optionsUrl;
+</script>
+
+<style>
+body {
+	padding: 0;
+	margin: 0;
+}
+h3 {
+	margin-top: 0;
+}
+p {
+	margin-bottom: 1em;
+}
+#Outer {
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+	padding: 1em;
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 200;
+}
+a {
+	padding: 5px 8px;
+	background: #999;
+	color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 35px auto;
+}
+</style>

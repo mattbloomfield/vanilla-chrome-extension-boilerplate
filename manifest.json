@@ -1,0 +1,27 @@
+/*FOR MORE HELP SEE https://developer.chrome.com/extensions/getstarted */
+{
+	"manifest_version": 2,
+	"name": "EXTENSION NAME",
+	"description": "YOUR CUSTOM TAGLINE FOR YOUR EXTENSION",
+	"version": "1.0.0",
+	"permissions": [
+		"activeTab",
+		"https://ajax.googleapis.com/", /*IF YOU WANT TO BRING IN JQUERY OR OTHER LIBRARY */
+		"https://myserveraddress.com*", /*ANY OTHER PAGE YOU NEED TO BE ABLE TO QUERY */
+		"storage" /*IF YOU WANT TO STORE VARIABLES ON A USER SPECIFIC BASIS */
+	],
+	"browser_action": { /*BROWSER ACTION IS ONLY NEEDED IF YOU WANT THE EXTENSION AVAILABLE IN THE UPPER RIGHT SECTION OF CHROME*/
+		"default_icon": "resources/icon.png", /*ICON THAT WILL APPEAR AS THE ICON IN UPPER RIGHT OF CHROME*/
+		"default_popup": "popup/popup.html" /*IF YOU WANT A DROPDOWN IN THE UPPER RIGHT OF CHROME, THIS PAGE WILL BE THE DROPDOWN OR PAGE THAT LOADS*/
+	},
+	"options_page": "options/options.html", /*IF YOU WANT THE USER TO HAVE OPTIONS FOR THE EXTENSION, MUST INCLUDE THIS. MUST USE STORAGE AS WELL IF USING THIS.*/
+	"icons": { "128": "resources/icon.png"}, /*ICON THAT DISPLAYS IN CHROME STORE AND EXTENSIONS PAGE*/
+	"content_scripts": [ /*ANY SCRIPTS OR CSS PAGES YOU WANT TO REFERENCE NEED TO BE PUT HERE*/
+		{
+		"matches": ["https://www.mysite.com/*"], /*THE PAGE THAT SHOULD TRIGGER THIS EXTENSION*/
+		"js": ["resources/jquery-1.11.3.min.js","runtime_scripts/index.js"], /*ANY JS PAGES THAT SHOULD LOAD*/
+		"css": ["runtime_scripts/style.css"], /*ANY CSS PAGES THAT SHOULD LOAD*/
+		"run_at": "document_end" /*WHEN SHOULD THE EXTENSION LOAD THESE SCRIPTS?*/
+		}
+	]
+}
